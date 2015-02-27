@@ -28,8 +28,8 @@ $servicesToCheck[]=array('what'=>'memcache', 'user'=>'memcache');
 $servicesToCheck[]=array('what'=>'proftpd', 'user'=>'proftpd');
 
 // set up password
-//$password=false;
-$password='p@$$w0rd'; //data is not available without password
+$password=false;
+//$password='p@$$w0rd'; //data is not available without password
 
 
 // must stay without changes
