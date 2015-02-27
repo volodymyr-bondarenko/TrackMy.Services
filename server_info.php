@@ -27,6 +27,10 @@ $servicesToCheck[]=array('what'=>'fail2ban', 'user'=>'root');
 $servicesToCheck[]=array('what'=>'memcache', 'user'=>'memcache');
 $servicesToCheck[]=array('what'=>'proftpd', 'user'=>'proftpd');
 
+// set up password
+//$password=false;
+$password='p@$$w0rd'; //data is not available without password
+
 
 // must stay without changes
 class Stats{
@@ -36,8 +40,10 @@ class Stats{
     private $_diskInfo = array();
     private $_PIDs = array();
     private $_loadAvg = array();
+	private $password = false;
 
-    public function __construct(){
+    public function __construct($password){
+		$this->password = $password;
         if(strpos(trim(shell_exec('uname -a')), 'FreeBSD') !== false){
             $this->_os = 'FreeBSD';
         }
@@ -48,15 +54,31 @@ class Stats{
         header("Content-Type: text/xml");
         header("Cache-Control: no-cache, must-revalidate");
     }
+	
+	private function checkPassword(){
+		if(!$this->password){
+			return true;
+		}else{
+			$password=isset($_GET['password'])?$_GET['password']:'';
+			if(base64_decode($password)==$this->password){
+				return true;
+			}else{
+				header('HTTP/1.0 401 Unauthorized');
+				return false;
+			}
+		}
+	}
 
     public function get($checkPIDs){
-        $this->sendHeaders();
-        foreach ($checkPIDs as $service) {
-            $this->_PIDs[] = array('title' => $service['what'], 'status' => $this->ps($service['user'], $service['what']));
-        }
-        $this->diskSpace();
-        $this->loadStats();
-        $this->generateXML();
+		if($this->checkPassword()){
+			$this->sendHeaders();		
+			foreach ($checkPIDs as $service) {
+				$this->_PIDs[] = array('title' => $service['what'], 'status' => $this->ps($service['user'], $service['what']));
+			}
+			$this->diskSpace();
+			$this->loadStats();
+			$this->generateXML();
+		}
     }
 
     private function ps($user, $what){
@@ -159,5 +181,5 @@ class Stats{
     }
 }
 
-$data = new Stats();
+$data = new Stats($password);
 $data->get($servicesToCheck);
