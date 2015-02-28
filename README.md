@@ -4,6 +4,8 @@
 [![GitHub release](https://img.shields.io/github/release/volodymyr-bondarenko/TrackMy.Services.svg?style=flat)](https://github.com/clickalicious/phpMemAdmin/releases) 
 [![Packagist](https://img.shields.io/packagist/l/clickalicious/phpmemadmin.svg?style=flat)](http://opensource.org/licenses/BSD-3-Clause)
 
+![Logo of TrackMy.Services](docs/logo_large.png)
+
 ## About
 [TrackMy.Services] - easy tool to track all your sites and servers online. Install app on your smartphone and get notification messages each time, when щт your server or web site appear a problem.
 
