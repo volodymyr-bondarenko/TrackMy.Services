@@ -3,7 +3,7 @@
 # TrackMy.Services
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/volodymyr-bondarenko/TrackMy.Services/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/volodymyr-bondarenko/TrackMy.Services/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/volodymyr-bondarenko/TrackMy.Services/badges/build.png?b=master)](https://scrutinizer-ci.com/g/volodymyr-bondarenko/TrackMy.Services/build-status/master)
-[![GitHub release](https://img.shields.io/github/release/volodymyr-bondarenko/TrackMy.Services.svg?style=flat)](https://github.com/clickalicious/phpMemAdmin/releases) 
+[![GitHub release](https://img.shields.io/github/release/volodymyr-bondarenko/TrackMy.Services.svg?style=flat)](https://github.com/volodymyr-bondarenko/TrackMy.Services/releases) 
 [![Packagist](https://img.shields.io/packagist/l/clickalicious/phpmemadmin.svg?style=flat)](http://opensource.org/licenses/BSD-3-Clause)
 
 ## About
