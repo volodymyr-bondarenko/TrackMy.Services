@@ -4,7 +4,7 @@
 // INFORMATION //
 //////////////////
 
-// Server stats 1.0
+// Server stats 1.1
 // Get important data from server
 
 // Created by Bondarenko Volodymyr
@@ -29,7 +29,8 @@ $servicesToCheck[]=array('what'=>'proftpd', 'user'=>'proftpd');
 
 // set up password
 $password=false;
-//$password='p@$$w0rd'; //data is not available without password
+// $password=false; //data is available without password
+// $password='p@$$w0rd'; //data is not available without password
 
 
 // must stay without changes
@@ -145,6 +146,7 @@ class Stats{
 <rss version="2.0">
     <channel>
         <title>'.$this->_hostname.'</title>
+		<version>1.1</version>
         <item>
             <first>'.$this->_loadAvg[0].'</first>
             <second>'.$this->_loadAvg[1].'</second>
@@ -155,7 +157,8 @@ class Stats{
 			echo '
                 <disk>
                     <title>'.$drive['title'].'</title>
-                    <free>'.$drive['free'].'</free>
+                    <size>'.$drive['size'].'</size>
+					<free>'.$drive['free'].'</free>
                     <usedPart>'.$drive['usedPart'].'</usedPart>
                     <mounted>'.$drive['mounted'].'</mounted>
                 </disk>';
